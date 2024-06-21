@@ -149,15 +149,11 @@ const Footer = () => {
           </Link>
         </Box> */ }
 
-        <Box mt={{ base: 5, lg: '24px' }}>
+        { /* <Box mt={{ base: 5, lg: '24px' }}>
           <Link fontSize="xs" href="https://mainnet.astranet.world">
             AstraNet Mainnet
           </Link>
-          &nbsp; &nbsp;
-          <Link fontSize="xs" href="https://testnet.astranet.world">
-            AstraNet Testnet
-          </Link>
-        </Box>
+        </Box> */ }
 
         <Text mt={ 3 } maxW={{ base: 'unset', lg: '470px' }} fontSize="xs">
           AstraNet is a tool for inspecting and analyzing EVM based
