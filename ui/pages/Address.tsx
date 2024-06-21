@@ -19,9 +19,13 @@ import AddressContract from 'ui/address/AddressContract';
 import AddressDetails from 'ui/address/AddressDetails';
 import AddressInternalTxs from 'ui/address/AddressInternalTxs';
 import AddressLogs from 'ui/address/AddressLogs';
+//REWARDS
+import AddressRewards from 'ui/address/AddressRewards';
 import AddressTokens from 'ui/address/AddressTokens';
 import AddressTokenTransfers from 'ui/address/AddressTokenTransfers';
 import AddressTxs from 'ui/address/AddressTxs';
+//VERIFIERS
+import AddressVerifiers from 'ui/address/AddressVerifiers';
 import AddressWithdrawals from 'ui/address/AddressWithdrawals';
 import AddressFavoriteButton from 'ui/address/details/AddressFavoriteButton';
 import AddressQrCode from 'ui/address/details/AddressQrCode';
@@ -109,6 +113,16 @@ const AddressPageContent = () => {
         id: 'coin_balance_history',
         title: 'Coin balance history',
         component: <AddressCoinBalance/>,
+      },
+      addressQuery.data?.is_contract ? undefined : {
+        id: 'verifiers',
+        title: 'Verifiers',
+        component: <AddressVerifiers/>,
+      },
+      addressQuery.data?.is_contract ? undefined : {
+        id: 'rewards',
+        title: 'Rewards',
+        component: <AddressRewards/>,
       },
       config.chain.verificationType === 'validation' && addressTabsCountersQuery.data?.validations_count ?
         {

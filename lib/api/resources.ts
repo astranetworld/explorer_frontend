@@ -182,6 +182,30 @@ export const RESOURCES = {
     pathParams: [ 'height_or_hash' as const ],
     filterFields: [],
   },
+  // VERIFIERS
+  block_verifiers: {
+    path: '/api/v2/blocks/:height_or_hash/verifiers',
+    pathParams: [ 'height_or_hash' as const ],
+    filterFields: [],
+  },
+  // REWARDS
+  block_rewards: {
+    path: '/api/v2/blocks/:height_or_hash/rewards',
+    pathParams: [ 'height_or_hash' as const ],
+    filterFields: [],
+  },
+  // VERIFIERS
+  block_verifiers: {
+    path: '/api/v2/blocks/:height_or_hash/verifiers',
+    pathParams: [ 'height_or_hash' as const ],
+    filterFields: [],
+  },
+  // REWARDS
+  block_rewards: {
+    path: '/api/v2/blocks/:height_or_hash/rewards',
+    pathParams: [ 'height_or_hash' as const ],
+    filterFields: [],
+  },
   block_withdrawals: {
     path: '/api/v2/blocks/:height_or_hash/withdrawals',
     pathParams: [ 'height_or_hash' as const ],
@@ -265,6 +289,30 @@ export const RESOURCES = {
   // },
   address_txs: {
     path: '/api/v2/addresses/:hash/transactions',
+    pathParams: [ 'hash' as const ],
+    filterFields: [ 'filter' as const ],
+  },
+  //ADDRESS VERIFIERS
+  address_verifiers: {
+    path: '/api/v2/addresses/:hash/verifiers',
+    pathParams: [ 'hash' as const ],
+    filterFields: [ 'filter' as const ],
+  },
+  //ADDRESS REWARDS
+  address_rewards: {
+    path: '/api/v2/addresses/:hash/rewards',
+    pathParams: [ 'hash' as const ],
+    filterFields: [ 'filter' as const ],
+  },
+  //ADDRESS VERIFIERS
+  address_verifiers: {
+    path: '/api/v2/addresses/:hash/verifiers',
+    pathParams: [ 'hash' as const ],
+    filterFields: [ 'filter' as const ],
+  },
+  //ADDRESS REWARDS
+  address_rewards: {
+    path: '/api/v2/addresses/:hash/rewards',
     pathParams: [ 'hash' as const ],
     filterFields: [ 'filter' as const ],
   },

@@ -209,7 +209,7 @@ const AddressDetails = ({ addressQuery, scrollRef }: Props) => {
           />
         </DetailsInfoItem>
       ) }
-      <DetailsSponsoredItem isLoading={ addressQuery.isPlaceholderData }/>
+      { /* <DetailsSponsoredItem isLoading={ addressQuery.isPlaceholderData }/> */ }
     </Grid>
   );
 };

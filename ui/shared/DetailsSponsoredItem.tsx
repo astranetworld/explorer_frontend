@@ -17,27 +17,27 @@ const DetailsSponsoredItem = ({ isLoading }: Props) => {
   const isMobile = useIsMobile();
   const hasAdblockCookie = cookies.get(cookies.NAMES.ADBLOCK_DETECTED);
 
-  if (!feature.isEnabled || hasAdblockCookie) {
-    return null;
-  }
+  //   if (!feature.isEnabled || hasAdblockCookie) {
+  return null;
+  //   }
 
-  if (isMobile) {
-    return (
-      <GridItem mt={ 5 }>
-        <AdBanner mx="auto" isLoading={ isLoading } display="flex" justifyContent="center"/>
-      </GridItem>
-    );
-  }
+  //   if (isMobile) {
+  //     return (
+  //       <GridItem mt={ 5 }>
+  //         <AdBanner mx="auto" isLoading={ isLoading } display="flex" justifyContent="center"/>
+  //       </GridItem>
+  //     );
+  //   }
 
-  return (
-    <DetailsInfoItem
-      title="Sponsored"
-      hint="Sponsored banner advertisement"
-      isLoading={ isLoading }
-    >
-      <AdBanner isLoading={ isLoading }/>
-    </DetailsInfoItem>
-  );
+//   return (
+//     <DetailsInfoItem
+//       title="Sponsored"
+//       hint="Sponsored banner advertisement"
+//       isLoading={ isLoading }
+//     >
+//       <AdBanner isLoading={ isLoading }/>
+//     </DetailsInfoItem>
+//   );
 };
 
 export default React.memo(DetailsSponsoredItem);

@@ -16,6 +16,7 @@ import { generateListStub } from 'stubs/utils';
 import { WITHDRAWAL } from 'stubs/withdrawals';
 import BlockDetails from 'ui/block/BlockDetails';
 import BlockWithdrawals from 'ui/block/BlockWithdrawals';
+import RewardsContent from 'ui/rewards/TxsContent';
 import TextAd from 'ui/shared/ad/TextAd';
 import AddressEntity from 'ui/shared/entities/address/AddressEntity';
 import NetworkExplorers from 'ui/shared/NetworkExplorers';
@@ -25,6 +26,7 @@ import useQueryWithPages from 'ui/shared/pagination/useQueryWithPages';
 import RoutedTabs from 'ui/shared/Tabs/RoutedTabs';
 import TabsSkeleton from 'ui/shared/Tabs/TabsSkeleton';
 import TxsContent from 'ui/txs/TxsContent';
+import VerifiersContent from 'ui/verifiers/TxsContent';
 
 const TAB_LIST_PROPS = {
   marginBottom: 0,
@@ -38,7 +40,6 @@ const BlockPageContent = () => {
   const appProps = useAppContext();
   const heightOrHash = getQueryParamString(router.query.height_or_hash);
   const tab = getQueryParamString(router.query.tab);
-
   const blockQuery = useApiQuery('block', {
     pathParams: { height_or_hash: heightOrHash },
     queryOptions: {
@@ -57,6 +58,32 @@ const BlockPageContent = () => {
         index: 49,
         items_count: 50,
       } }),
+    },
+  });
+
+  const blockVerifiersQuery = useQueryWithPages({
+    resourceName: 'block_verifiers',
+    pathParams: { height_or_hash: heightOrHash },
+    options: {
+      enabled: Boolean(!blockQuery.isPlaceholderData && blockQuery.data?.height && tab === 'verifiers'),
+    //   placeholderData: generateListStub<'block_verifiers'>(TX, 50, { next_page_params: {
+    //     block_number: 9004925,
+    //     index: 49,
+    //     items_count: 50,
+    //   } }),
+    },
+  });
+
+  const blockRewardsQuery = useQueryWithPages({
+    resourceName: 'block_rewards',
+    pathParams: { height_or_hash: heightOrHash },
+    options: {
+      enabled: Boolean(!blockQuery.isPlaceholderData && blockQuery.data?.height && tab === 'rewards'),
+    //   placeholderData: generateListStub<'block_rewards'>(TX, 50, { next_page_params: {
+    //     block_number: 9004925,
+    //     index: 49,
+    //     items_count: 50,
+    //   } }),
     },
   });
 
@@ -83,10 +110,15 @@ const BlockPageContent = () => {
   const tabs: Array<RoutedTab> = React.useMemo(() => ([
     { id: 'index', title: 'Details', component: <BlockDetails query={ blockQuery }/> },
     { id: 'txs', title: 'Transactions', component: <TxsContent query={ blockTxsQuery } showBlockInfo={ false } showSocketInfo={ false }/> },
+    // ADD:VERIFIES
+    { id: 'verifiers', title: 'Miner Verifiers', component: <VerifiersContent
+      query={ blockVerifiersQuery } showBlockInfo={ false } showSocketInfo={ false }/> },
+    // ADD:REWARDS
+    { id: 'rewards', title: 'Miner Rewards', component: <RewardsContent query={ blockRewardsQuery } showBlockInfo={ false } showSocketInfo={ false }/> },
     config.features.beaconChain.isEnabled && Boolean(blockQuery.data?.withdrawals_count) ?
       { id: 'withdrawals', title: 'Withdrawals', component: <BlockWithdrawals blockWithdrawalsQuery={ blockWithdrawalsQuery }/> } :
       null,
-  ].filter(Boolean)), [ blockQuery, blockTxsQuery, blockWithdrawalsQuery ]);
+  ].filter(Boolean)), [ blockQuery, blockTxsQuery, blockVerifiersQuery, blockRewardsQuery, blockWithdrawalsQuery ]);
 
   const hasPagination = !isMobile && (
     (tab === 'txs' && blockTxsQuery.pagination.isVisible) ||

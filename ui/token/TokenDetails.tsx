@@ -163,7 +163,7 @@ const TokenDetails = ({ tokenQuery }: Props) => {
 
       { type !== 'ERC-20' && <TokenNftMarketplaces hash={ hash } isLoading={ tokenQuery.isPlaceholderData }/> }
 
-      <DetailsSponsoredItem isLoading={ tokenQuery.isPlaceholderData }/>
+      { /* <DetailsSponsoredItem isLoading={ tokenQuery.isPlaceholderData }/> */ }
     </Grid>
   );
 };

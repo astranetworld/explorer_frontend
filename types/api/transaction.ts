@@ -70,6 +70,14 @@ export type Transaction = {
   zkevm_batch_number?: number;
   zkevm_status?: typeof ZKEVM_L2_TX_STATUSES[number];
   zkevm_sequence_hash?: string;
+
+  // MY TYPES
+  address_hash?: string | number | null;
+  public_key?: string | number | null;
+  amount?: string | number | null;
+  block_number?: string | number | null;
+  block_timestamp?: string | number | null;
+
 }
 
 export const ZKEVM_L2_TX_STATUSES = [ 'Confirmed by Sequencer', 'L1 Confirmed' ];

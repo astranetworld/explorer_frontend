@@ -7,13 +7,13 @@ export const getEnvValue = (envName: string) => {
   // eslint-disable-next-line no-restricted-properties
   const envs = isBrowser() ? window.__envs : process.env;
 
-  if (isBrowser() && envs.NEXT_PUBLIC_APP_INSTANCE === 'pw') {
-    const storageValue = localStorage.getItem(envName);
+  //   if (isBrowser() && envs.NEXT_PUBLIC_APP_INSTANCE === 'pw') {
+  //     const storageValue = localStorage.getItem(envName);
 
-    if (typeof storageValue === 'string') {
-      return storageValue;
-    }
-  }
+  //     if (typeof storageValue === 'string') {
+  //       return storageValue;
+  //     }
+  //   }
 
   return replaceQuotes(envs[envName]);
 };
