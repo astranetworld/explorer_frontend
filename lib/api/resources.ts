@@ -182,18 +182,18 @@ export const RESOURCES = {
     pathParams: [ 'height_or_hash' as const ],
     filterFields: [],
   },
-  // VERIFIERS
-  block_verifiers: {
-    path: '/api/v2/blocks/:height_or_hash/verifiers',
-    pathParams: [ 'height_or_hash' as const ],
-    filterFields: [],
-  },
-  // REWARDS
-  block_rewards: {
-    path: '/api/v2/blocks/:height_or_hash/rewards',
-    pathParams: [ 'height_or_hash' as const ],
-    filterFields: [],
-  },
+  //   // VERIFIERS
+  //   block_verifiers: {
+  //     path: '/api/v2/blocks/:height_or_hash/verifiers',
+  //     pathParams: [ 'height_or_hash' as const ],
+  //     filterFields: [],
+  //   },
+  //   // REWARDS
+  //   block_rewards: {
+  //     path: '/api/v2/blocks/:height_or_hash/rewards',
+  //     pathParams: [ 'height_or_hash' as const ],
+  //     filterFields: [],
+  //   },
   // VERIFIERS
   block_verifiers: {
     path: '/api/v2/blocks/:height_or_hash/verifiers',
@@ -289,18 +289,6 @@ export const RESOURCES = {
   // },
   address_txs: {
     path: '/api/v2/addresses/:hash/transactions',
-    pathParams: [ 'hash' as const ],
-    filterFields: [ 'filter' as const ],
-  },
-  //ADDRESS VERIFIERS
-  address_verifiers: {
-    path: '/api/v2/addresses/:hash/verifiers',
-    pathParams: [ 'hash' as const ],
-    filterFields: [ 'filter' as const ],
-  },
-  //ADDRESS REWARDS
-  address_rewards: {
-    path: '/api/v2/addresses/:hash/rewards',
     pathParams: [ 'hash' as const ],
     filterFields: [ 'filter' as const ],
   },
@@ -627,7 +615,7 @@ export type PaginatedResources = 'blocks' | 'block_txs' |
 'verified_contracts' |
 'l2_output_roots' | 'l2_withdrawals' | 'l2_txn_batches' | 'l2_deposits' |
 'zkevm_l2_txn_batches' | 'zkevm_l2_txn_batch_txs' |
-'withdrawals' | 'address_withdrawals' | 'block_withdrawals';
+'withdrawals' | 'address_withdrawals' | 'block_withdrawals' | 'address_rewards' | 'address_verifiers' | 'block_verifiers' | 'block_rewards';
 
 export type PaginatedResponse<Q extends PaginatedResources> = ResourcePayload<Q>;
 
