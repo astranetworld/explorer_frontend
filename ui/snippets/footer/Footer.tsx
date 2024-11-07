@@ -149,19 +149,19 @@ const Footer = () => {
           </Link>
         </Box> */ }
 
-        { /* <Box mt={{ base: 5, lg: '24px' }}>
-          <Link fontSize="xs" href="https://mainnet.astranet.world">
-            AstraNet Mainnet
+        <Box mt={{ base: 5, lg: '24px' }}>
+          <Link fontSize="xs" href="https://mainnet.n42.world">
+            N42 Mainnet
           </Link>
-        </Box> */ }
+        </Box>
 
         <Text mt={ 3 } maxW={{ base: 'unset', lg: '470px' }} fontSize="xs">
-          AstraNet is a tool for inspecting and analyzing EVM based
-          blockchains. Blockchain explorer for AstraNet Networks.
+          N42 is a tool for inspecting and analyzing EVM based
+          blockchains. Blockchain explorer for N42 Networks.
         </Text>
 
         <Box mt={{ base: 5, lg: '14px' }}>
-          <Link fontSize="xs" href="https://mainnet.astranet.world">
+          <Link fontSize="xs" href="https://mainnet.n42.world">
             Version：2.0.0
           </Link>
         </Box>
